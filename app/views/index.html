@@ -1,0 +1,39 @@
+<html>
+  <head>
+  </head>
+  <body>
+  	<h2>Add a new Course</h2>
+   <form action='/courses' method='post'>
+   <label for='name'>Name:</label>
+   <input type='text' name='name'><br>
+   <label for='description'>Description:</label>
+   <input type='text' name='description'><br>
+   <input type ='submit' value='Add'>
+</form>
+
+<table>
+<tr>
+	<th>Course Name</th>
+	<th>Description</th>
+	<th>Date Added</th>
+	<th>Action</th>
+
+</tr>
+{% for x in courses %}
+<tr>
+	<td>{{x['name']}}</td>
+	<td>{{x['description']}}</td>
+	<td>{{x['created_at']}}</td>
+	<td><a href="/courses/delete/{{ x['id'] }}">Remove</a></td>
+
+
+</tr>
+{% endfor %}
+</table>
+
+
+
+
+
+  </body>
+</html>
